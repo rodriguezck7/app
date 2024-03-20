@@ -1,5 +1,6 @@
 services:
   appprod:
+    container_name: appimgprod
     image: appimgprod:v1
     ports:
       - 3000:3000
@@ -10,6 +11,7 @@ services:
       MYSQL_DB: prod
 
   mysqlprod: 
+    container_name: mysqlprod
     image: mysql:5.7
     volumes:
       - ./prod_database:/var/lib/mysql

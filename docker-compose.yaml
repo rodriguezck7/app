@@ -1,0 +1,18 @@
+services:
+  appprod:
+    image: appimgprod:v1
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL_HOST: mysqlprod
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: prod
+
+  mysqlprod: 
+    image: mysql:5.7
+    volumes:
+      - ./prod_database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: prod
